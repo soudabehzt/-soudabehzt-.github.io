@@ -878,9 +878,14 @@ p {
       margin: 0 auto;    /* keep it centered */
       display: block;
     }
-  }
   
-  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-  @media (max-width: 50em) {
-    .gallery-grid { grid-template-columns: 1fr; }
   }
+  /* Make all gallery images the same size (square thumbnails) */
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;  /* use 4 / 3 if you prefer */
+  object-fit: cover;     /* crop to fill without distortion */
+  display: block;
+}
+
+  
