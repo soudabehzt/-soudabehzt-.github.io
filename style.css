@@ -1361,36 +1361,44 @@ a:hover {
   .brand{ justify-content:center; }
 }
 
-/* === ONE-AND-ONLY top gradient (from very top, fades quickly to white) === */
-html,
-body { height: 100%; }
+/* === ONE-AND-ONLY top gradient — homepage ONLY (pages that have .hero) === */
+html, body { height: 100%; }
 
+/* Default: do NOT force any body background (so recipe pages can use their own) */
+body { background: initial; }  /* <- important: removes the earlier `transparent !important` */
+
+/* Apply the top fade only on pages that have the hero section (homepage) */
 html {
-  --top-gradient-height: 320px; /* tweak: smaller = becomes white sooner */
+  --top-gradient-height: 320px; /* adjust fade distance */
+}
+body:has(.hero) {
   background: linear-gradient(180deg, #fdeef4 0%, #ffffff var(--top-gradient-height)) no-repeat fixed;
 }
 
-/* Body paints nothing (prevents extra gradients) */
-body { background: transparent !important; }
-
-/* Make all top sections transparent so they DON'T restart a gradient */
-.primary-header,
-.hero,
-.about-pre,
-.about,
-.carousel,
-.recipe-request,   /* <-- include the submit section */
-.request-form {    /* <-- and the inner form */
+/* Only on hero pages: make top sections transparent so the gradient shows through */
+body:has(.hero) .primary-header,
+body:has(.hero) .hero,
+body:has(.hero) .about-pre,
+body:has(.hero) .about,
+body:has(.hero) .carousel,
+body:has(.hero) .recipe-request,
+body:has(.hero) .request-form {
   background: transparent !important;
 }
 
-/* Kill any decorative pseudo backgrounds that could draw lines */
-.primary-header::before,
-.primary-header::after,
-.hero::before,
-.hero::after {
+/* Only on hero pages: kill decorative pseudos that could draw lines */
+body:has(.hero) .primary-header::before,
+body:has(.hero) .primary-header::after,
+body:has(.hero) .hero::before,
+body:has(.hero) .hero::after {
   content: none !important;
   background: none !important;
+}
+
+/* Keep footer sections solid everywhere */
+.primary-footer,
+.endcap {
+  background: var(--clr-accent-400) !important;
 }
 
 /* Keep footer exactly as-is */
@@ -1473,3 +1481,12 @@ body { background: transparent !important; }
   }
 }
 
+
+body.home {
+  background: linear-gradient(
+    180deg,
+    rgba(248, 204, 226, 0.12) 0%,   /* super faint pink */
+    rgba(253, 238, 244, 0.08) 15%,  /* barely-there blush */
+    #ffffff 40%                     /* white takes over fast */
+  ) fixed no-repeat;
+}

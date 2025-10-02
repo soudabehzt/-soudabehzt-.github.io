@@ -46,10 +46,16 @@
       color:#4a1748;
       margin-top:.75rem;
     }
+
+    /* Homepage-only gradient (affects this file only) */
+    body.home {
+      --top-gradient-height: 680px;
+      background: linear-gradient(180deg, #f8cce2 0%, #fdeef4 40%, #ffffff 100%) fixed no-repeat;
+    }
   </style>
 </head>
 
-<body>
+<body class="home">
 <!-- SVG sprite: define all icons once -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
 
@@ -212,13 +218,10 @@
         <div class="about-wrap">
           <h1 class="fs-primary-heading fw-bold">About me</h1>
   
-          <p>Welcome to <strong>SouChef</strong>: a project where technology meets creativity in the kitchen. I'm Soudabeh Torbati, an engineering student and aspiring product designer with a passion for building things that make everyday life simpler and more enjoyable.</p>
-  
-          <p>This site is more than just recipes; it's a space where I explore how design, coding, and creativity can come together. From building interactive recipe cards to experimenting with smart-kitchen ideas, I see SouChef as both a playground and a portfolio of what's possible when technology is applied in unexpected places.</p>
-  
-          <p>Here, you'll find curated recipes, visuals, and projects that reflect my curiosity and attention to detail. Whether you're here for inspiration in the kitchen or to see how I approach design and development, I hope SouChef gives you a taste of both.</p>
-  
-          <p>Outside of this project, I'm focused on engineering, web development, and product design, with the goal of creating tools that are intuitive, accessible, and impactful. If you'd like to connect or collaborate, feel free to reach out!</p>
+          <p>Welcome to <strong>SouChef</strong>, a space where technology meets innovation in the kitchen. I’m Soudabeh Torbati, an engineering student with a passion for blending creativity, design, and everyday life into projects that feel both smart and inspiring. SouChef is more than a recipe collection, it’s my creative playground. Here, I experiment with interactive design, coding, and smart-kitchen concepts, turning ideas into projects that are as functional as they are beautiful. It’s a portfolio of what happens when engineering meets imagination.</p>
+
+          <p>Within these pages, you’ll find curated recipes, soft visuals, and thoughtful projects that reflect my eye for detail and my love for problem-solving. Whether you’re here to discover a new dish or to see how I approach design and development, I hope SouChef sparks both inspiration and curiosity.</p>
+
   
           <!-- Image row -->
           <div class="about-images">
@@ -375,7 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <img class="logo" src="images/logo2.png" alt="SouChef" />
         </a>
         <ul class="social-list" role="list" aria-label="Social links">
-          <li><a href="#" aria-label="Pinterest"><svg class="social-icon"><use href="#icon-pinterest"></use></svg></a></li>
+          <li><a href="https://ca.pinterest.com/soudabehtorbati/?invite_code=8ef1a356b9e94667a78c33bdb64a8674&sender=943433959348684411" aria-label="Pinterest"><svg class="social-icon"><use href="#icon-pinterest"></use></svg></a></li>
           <li><a href="https://www.instagram.com/souchef__" aria-label="Instagram"><svg class="social-icon"><use href="#icon-instagram"></use></svg></a></li>
         </ul>
       </div>
