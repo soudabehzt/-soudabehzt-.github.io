@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salmon | SouChef</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:#2c2c2c;background:url("../images/pic3.png") no-repeat center center fixed;background-size:cover;}
+    body::before{content:"";position:fixed;inset:0;background:rgba(255,255,255,0.5);z-index:0;}
+    .page{position:relative;z-index:1;max-width:1100px;margin:3rem auto;padding:2rem;background:rgba(255,255,255,0.6);border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+    .layout{display:grid;gap:2rem;} @media (min-width:64em){.layout{grid-template-columns:1fr 320px;align-items:start;}}
+    h1,h2{color:#4a1748;} ul,ol{padding-left:1.2rem;}
+    .meta{display:flex;gap:.75rem 1.25rem;flex-wrap:wrap;font-weight:600;margin:.25rem 0 1rem;}
+    .panel{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+    .panel h3{margin:0 0 .75rem 0;color:#4a1748;}
+    .nutri{font-size:.95rem;} .nutri table{width:100%;border-collapse:collapse;}
+    .nutri td{padding:.5rem .25rem;border-bottom:1px solid rgba(240,240,240,0.5);} .nutri td:first-child{font-weight:600;width:60%;}
+    .note{margin-top:.75rem;font-size:.9rem;color:#5a5a5a;} @media (min-width:64em){.sticky{position:sticky;top:1.25rem;}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="layout">
+      <article>
+        <header>
+          <h1 class="fs-primary-heading fw-bold">Salmon</h1>
+          <div class="meta"><span>⏱ 20 min</span><span>🍽 2 servings</span><span>🧑‍🍳 Easy</span></div>
+          <p>Pan-seared salmon with lemon butter and herbs — crispy skin, tender center.</p>
+        </header>
+        <section class="padding-block-500">
+          <h2 class="fs-600 fw-bold">Ingredients</h2>
+          <ul>
+            <li>2 salmon fillets (skin-on)</li><li>1 tbsp olive oil</li><li>2 tbsp butter</li>
+            <li>1 garlic clove, minced</li><li>1 lemon (zest & wedges)</li><li>Dill or parsley, salt, pepper</li>
+          </ul>
+        </section>
+        <section class="padding-block-500">
+          <h2 class="fs-600 fw-bold">Steps</h2>
+          <ol>
+            <li>Pat salmon dry; season both sides.</li>
+            <li>Heat oil; sear skin-side down 5–6 min until crisp. Flip 1–2 min.</li>
+            <li>Add butter, garlic, lemon zest; baste briefly. Finish with herbs.</li>
+          </ol>
+        </section>
+      </article>
+      <aside class="panel sticky nutri" aria-label="Nutrition facts">
+        <h3 class="fw-bold">Nutrition (per serving)</h3>
+        <table>
+          <tr><td>Calories</td><td>~ 450 kcal</td></tr>
+          <tr><td>Protein</td><td>~ 34 g</td></tr>
+          <tr><td>Carbohydrates</td><td>~ 2 g</td></tr>
+          <tr><td>Fat</td><td>~ 33 g</td></tr>
+          <tr><td>Omega-3</td><td>~ 2.0 g</td></tr>
+          <tr><td>Sodium</td><td>~ 420 mg</td></tr>
+        </table>
+        <p class="note">Depends on fillet size and butter used.</p>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
