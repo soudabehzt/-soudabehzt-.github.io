@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite App</title>
+  <title>SouChef</title>
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,46 +16,93 @@
 
   <!-- Your main styles -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Subscription form styles */
+    .subscribe {
+      display:flex; gap:.5rem; justify-content:center; align-items:center;
+      margin:1rem 0; max-width:520px;
+      background:rgba(255,255,255,.1);
+      padding:.75rem; border-radius:12px;
+    }
+    .subscribe input[type="email"] {
+      flex:1; padding:.8rem 1rem; border-radius:10px;
+      border:1px solid rgba(255,255,255,0.3);
+      font:inherit; outline:none; background:rgba(255,255,255,.8);
+    }
+    .subscribe button {
+      padding:.8rem 1.25rem; border:none; border-radius:10px; font-weight:700;
+      background:#4a1748; color:white; cursor:pointer;
+      transition:opacity .25s ease, transform .03s ease;
+    }
+    .subscribe button:hover { opacity:.8; }
+    .subscribe button:active { transform:translateY(1px); }
+    .sr-only {
+      position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;
+    }
+    .success-message {
+      text-align:center;
+      font-weight:600;
+      color:#4a1748;
+      margin-top:.75rem;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- SVG sprite -->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <symbol viewBox="0 0 20 20" id="icon-facebook">
-      <path d="M18.896 0H1.104C.494 0 0 .494 0 1.104v17.793C0 19.506.494 20 1.104 20h9.58v-7.745H8.076V9.237h2.606V7.01c0-2.583 1.578-3.99 3.883-3.99 1.104 0 2.052.082 2.329.119v2.7h-1.598c-1.254 0-1.496.597-1.496 1.47v1.928h2.989l-.39 3.018h-2.6V20h5.098c.608 0 1.102-.494 1.102-1.104V1.104C20 .494 19.506 0 18.896 0z"/>
-    </symbol>
-    <symbol viewBox="0 0 20 20" id="icon-pinterest">
-      <path d="M10 0C4.478 0 0 4.477 0 10c0 4.237 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.182-.78 1.172-4.97 1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.545 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.281a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.525-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.522 0 10-4.477 10-10S15.522 0 10 0z"/>
-    </symbol>
-    <symbol viewBox="0 0 21 20" id="icon-instagram">
-      <path d="M10.333 1.802c2.67 0 2.987.01 4.042.059 2.71.123 3.976 1.409 4.1 4.099.048 1.054.057 1.37.057 4.04 0 2.672-.01 2.988-.058 4.042-.124 2.687-1.386 3.975-4.099 4.099-1.055.048-1.37.058-4.042.058-2.67 0-2.986-.01-4.04-.058-2.717-.124-3.976-1.416-4.1-4.1-.048-1.054-.058-1.37-.058-4.041 0-2.67.01-2.986.058-4.04.124-2.69 1.387-3.977 4.1-4.1 1.054-.048 1.37-.058 4.04-.058zm0-1.802C7.618 0 7.278.012 6.211.06 2.579.227.56 2.242.394 5.877.345 6.944.334 7.284.334 10s.011 3.057.06 4.123c.166 3.632 2.181 5.65 5.816 5.817 1.068.048 1.408.06 4.123.06 2.716 0 3.057-.012 4.124-.06 3.628-.167 5.651-2.182 5.816-5.817.049-1.066.06-1.407.06-4.123s-.011-3.056-.06-4.122C20.11 2.249 18.093.228 14.458.06 13.39.01 13.049 0 10.333 0zm0 4.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.339-9.87a1.2 1.2 0 10-.001 2.4 1.2 1.2 0 000-2.4z"/>
-    </symbol>
-    <symbol viewBox="0 0 21 18" id="icon-twitter">
-      <path d="M20.667 2.797a8.192 8.192 0 01-2.357.646 4.11 4.11 0 001.804-2.27 8.22 8.22 0 01-2.606.996A4.096 4.096 0 0014.513.873c-2.649 0-4.595 2.472-3.997 5.038a11.648 11.648 0 01-8.457-4.287 4.109 4.109 0 001.27 5.478A4.086 4.086 0 011.47 6.59c-.045 1.901 1.317 3.68 3.29 4.075a4.113 4.113 0 01-1.853.07 4.106 4.106 0 003.834 2.85 8.25 8.25 0 01-6.075 1.7 11.616 11.616 0 006.29 1.843c7.618 0 11.922-6.434 11.662-12.205a8.354 8.354 0 002.048-2.124z"/>
-    </symbol>
-    <symbol viewBox="0 0 21 20" id="icon-youtube">
-      <path d="M10.333 0c-5.522 0-10 4.478-10 10 0 5.523 4.478 10 10 10 5.523 0 10-4.477 10-10 0-5.522-4.477-10-10-10zm3.701 14.077c-1.752.12-5.653.12-7.402 0C4.735 13.947 4.514 13.018 4.5 10c.014-3.024.237-3.947 2.132-4.077 1.749-.12 5.651-.12 7.402 0 1.898.13 2.118 1.059 2.133 4.077-.015 3.024-.238 3.947-2.133 4.077zM8.667 8.048l4.097 1.949-4.097 1.955V8.048z"/>
-    </symbol>
-  </svg>
+<!-- SVG sprite: define all icons once -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
 
+  <!-- Pinterest -->
+  <symbol viewBox="0 0 20 20" id="icon-pinterest">
+    <path d="M10 0C4.478 0 0 4.477 0 10c0 4.237 2.636 7.855 6.356 
+    9.312-.088-.791-.167-2.005.035-2.868.182-.78 1.172-4.97 
+    1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 
+    1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.545 
+    2.14-.828 3.33-.236.995.5 1.807 1.48 
+    1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 
+    0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 
+    2.281a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 
+    0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 
+    6.165 5.776 0 3.447-2.173 6.22-5.19 
+    6.22-1.013 0-1.965-.525-2.291-1.148l-.623 2.378c-.226.869-.835 
+    1.958-1.244 2.621.937.29 1.931.446 
+    2.962.446 5.522 0 10-4.477 10-10S15.522 0 10 0z"/>
+  </symbol>
+
+  <!-- Instagram -->
+  <symbol viewBox="0 0 21 20" id="icon-instagram">
+    <path d="M10.333 1.802c2.67 0 2.987.01 4.042.059 2.71.123 3.976 
+    1.409 4.1 4.099.048 1.054.057 1.37.057 4.04 0 
+    2.672-.01 2.988-.058 4.042-.124 2.687-1.386 
+    3.975-4.099 4.099-1.055.048-1.37.058-4.042.058-2.67 
+    0-2.986-.01-4.04-.058-2.717-.124-3.976-1.416-4.1-4.1-.048-1.054-.058-1.37-.058-4.041 
+    0-2.67.01-2.986.058-4.04.124-2.69 1.387-3.977 
+    4.1-4.1 1.054-.048 1.37-.058 4.04-.058zm0-1.802C7.618 
+    0 7.278.012 6.211.06 2.579.227.56 2.242.394 
+    5.877.345 6.944.334 7.284.334 10s.011 3.057.06 
+    4.123c.166 3.632 2.181 5.65 5.816 5.817 
+    1.068.048 1.408.06 4.123.06 2.716 0 3.057-.012 
+    4.124-.06 3.628-.167 5.651-2.182 
+    5.816-5.817.049-1.066.06-1.407.06-4.123s-.011-3.056-.06-4.122C20.11 
+    2.249 18.093.228 14.458.06 13.39.01 
+    13.049 0 10.333 0zm0 4.865a5.135 5.135 
+    0 100 10.27 5.135 5.135 0 000-10.27zm0 
+    8.468a3.333 3.333 0 110-6.666 3.333 3.333 
+    0 010 6.666zm5.339-9.87a1.2 1.2 0 10-.001 
+    2.4 1.2 1.2 0 000-2.4z"/>
+  </symbol>
+
+</svg>
+ 
   <!-- Header -->
   <header class="primary-header">
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#" aria-label="Home">
+        <a href="index.html" aria-label="Home">
           <img src="images/logo.png" alt="SouChef" class="site-logo slouched"/>
         </a>
-        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-          <span class="visually-hidden">Menu</span>
-        </button>
-        <nav class="primary-navigation" id="primary-navigation">
-          <ul role="list" aria-label="Primary" class="nav-list">
-            <li><a href="recipes.html">Recipes</a></li>
-            <li><a href="pictures.html">Pictures</a></li>
-            <li><a href="  aboutme.html">About Me</a></li>
-          </ul>
-        </nav>
-        <button class="button display-sm-none display-md-inline-flex">Start Cooking</button>
+       
       </div>
     </div>
   </header>
@@ -67,151 +113,280 @@
       <div class="container">
         <div class="even-columns">
           <div class="flow">
-            <h1 class="fs-primary-heading fw-bold">Fueling Health, One Recipe at a Time.</h1>
+            <h1 class="fs-primary-heading fw-bold">Fueling Health, One Recipe at a Time</h1>
             <p>
               SouChef simplifies meal planning, helping you focus on daily cooking tasks
               while staying mindful of long-term culinary goals.
             </p>
-            <button class="button">Start Cooking</button>
           </div>
-          <div class = "hero__image">
+          <div class="hero__image">
             <img class="mx-auto" src="images/illustration-intro.png" alt="Healthy meal illustration" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Why Cook -->
-    <section class="padding-block-900">
-      <div class="container">
-        <div class="even-columns">
-          <div class="why-cook flow text-center-sm-only" style="--flow-spacer: 1.5rem">
-            <h2 class="fs-secondary-heading fw-bold">Why should you cook instead of order out?</h2>
-            <p class="numbered-items__body" data-width="wide">
-              Cooking allows you to tailor flavors, ingredients, and nutritional content to your exact
-              preferences, ensuring a personalized and healthier dining experience.
-            </p>
-          </div>
-          <div>
-            <ul class="numbered-items flow" role="list">
-              <li>
-                <div class="flow" style="--flow-spacer: 1em;">
-                  <h3 class="numbered-items__title | fs-600 fw-bold">Take charge of what goes on your plate</h3>
-                  <p class="numbered-items__body" data-width="wide">Pick out vegetables, proteins, and spices that inspire you and fit your taste.</p>
-                </div>
-              </li>
-              <li>
-                <div class="flow" style="--flow-spacer: 1em;">
-                  <h3 class="numbered-items__title | fs-600 fw-bold">Turn recipes into experiences</h3>
-                  <p class="numbered-items__body" data-width="wide">Each dish you make is a chance to learn, experiment, and discover new flavors.</p>
-                </div>
-              </li>
-              <li>
-                <div class="flow" style="--flow-spacer: 1em;">
-                  <h3 class="numbered-items__title | fs-600 fw-bold">Celebrate the joy of eating your own food</h3>
-                  <p class="numbered-items__body" data-width="wide">Enjoy the comfort of knowing your meal is healthier, tastier, and truly yours.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <section class="about-pre">
+      <img src="images/about4.png" alt="preabout">
     </section>
+      
 
-    <section class="carousel padding-block-700 text-center">
-  <h2 class="fs-secondary-heading fw-bold">Made by SouChef</h2>
+   
+  
 
-  <ul class="static-slider">
-    <li>
-      <img src="images/roll.png" alt="Cinnamon Rolls" />
-      <div class="slider-content flow" style="--flow-spacer:1rem">
-        <h3 class="fw-bold">Cinnamon Rolls</h3>
-        <p data-width="wide">
-          Warm, buttery spirals swirled with cinnamon-sugar and drizzled in sweet vanilla glaze.
-        </p>
-      </div>
-    </li>
-    <li>
-      <img src="images/lemon.png" alt="Lemon Pavlovas" />
-      <div class="slider-content flow" style="--flow-spacer:1rem">
-        <h3 class="fw-bold">Lemon Pavlovas</h3>
-        <p data-width="wide">
-          Cloud-soft meringue nests topped with tangy lemon curd and juicy blackberries.
-        </p>
-      </div>
-    </li>
-    <li>
-      <img src="images/quiche.png" alt="Mini Quiches" />
-      <div class="slider-content flow" style="--flow-spacer:1rem">
-        <h3 class="fw-bold">Mini Quiches</h3>
-        <p data-width="wide">
-          Golden mini quiches brimming with fluffy egg custard, smoky bacon, and spinach.
-        </p>
-      </div>
-    </li>
-  </ul>
-
-  <button class="button">Start Cooking</button>
-</section>
-
-
-    <!-- CTA -->
-    <section class="cta padding-block-700 bg-accent-400 text-neutral-100">
+    <!-- Gallery -->
+    <section class="carousel padding-block-700">
       <div class="container">
-        <div class="even-columns vertical-align-center">
-          <div>
-            <p class="fs-secondary-heading fw-bold">
-              Simplify how your cooking routine flows today.
-            </p>
-          </div>
-          <div class="justify-self-end-md">
-            <button class="button" data-type="inverted">Start Cooking</button>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        <h2 class="fs-secondary-heading fw-bold text-center">Made by SouChef</h2>
+        <div class="gallery-grid" role="list" aria-label="Image gallery">
 
-  <!-- Footer -->
-  <footer class="primary-footer padding-block-700 bg-neutral-900 text-neutral-100">
-    <div class="container">
-      <div class="primary-footer-wrapper">
-        <div class="primary-footer-logo-social">
-          <a href="#" aria-label="Home">
-            <img class="logo" src="images/logo2.png" alt="SouChef" />
+          <a class="gallery-link" href="recipes/steak-dinner.html">
+            <figure role="listitem" class="gallery-card">
+              <img src="images/pic1.png" alt="Steak Dinner" />
+              <figcaption>Steak Dinner</figcaption>
+            </figure>
           </a>
-          <ul class="social-list" role="list" aria-label="Social links">
-            <li><a href="#" aria-label="Facebook"><svg class="social-icon"><use href="#icon-facebook"></use></svg></a></li>
-            <li><a href="#" aria-label="YouTube"><svg class="social-icon"><use href="#icon-youtube"></use></svg></a></li>
-            <li><a href="#" aria-label="Twitter"><svg class="social-icon"><use href="#icon-twitter"></use></svg></a></li>
-            <li><a href="#" aria-label="Pinterest"><svg class="social-icon"><use href="#icon-pinterest"></use></svg></a></li>
-            <li><a href="https://www.instagram.com/souchef__?igsh=MnBmbmJkd2pnNHg5&utm_source=qr" aria-label="Instagram"><svg class="social-icon"><use href="#icon-instagram"></use></svg></a></li>
-          </ul>
-        </div>
-        <div class="primary-footer-nav">
-          <nav class="footer-nav">
-            <ul class="flow" style="--flow-spacer:1em" role="list">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="recipes.html">Recipes</a></li>
-              <li><a href="pictures.html">Pictures</a></li>
-              <li><a href="aboutme.html">About Me</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="primary-footer-form">
-          <form action="">
-            <input type="email" placeholder="Your email address" />
-            <button class="button" data-shadow="none">Go</button>
-          </form>
-          <p>Copyright 2025. All Rights Reserved</p>
+
+          <a class="gallery-link" href="recipes/ghormeh-sabzi.html">
+            <figure role="listitem" class="gallery-card">
+              <img src="images/pic2.png" alt="Ghormeh Sabzi" />
+              <figcaption>Ghormeh Sabzi</figcaption>
+            </figure>
+          </a>
+
+          <a class="gallery-link" href="recipes/salmon.html">
+            <figure role="listitem" class="gallery-card">
+              <img src="images/pic3.png" alt="Salmon" />
+              <figcaption>Salmon</figcaption>
+            </figure>
+          </a>
+
+          <a class="gallery-link" href="recipes/pizza.html">
+            <figure role="listitem" class="gallery-card">
+              <img src="images/pic4.png" alt="Pizza" />
+              <figcaption>Pizza</figcaption>
+            </figure>
+          </a>
+
+          <a class="gallery-link" href="recipes/orange-cupcake.html">
+            <figure role="listitem" class="gallery-card">
+              <img src="images/pic5.png" alt="Orange Cupcake" />
+              <figcaption>Orange Cupcake</figcaption>
+            </figure>
+          </a>
+
+          <a class="gallery-link" href="recipes/strawberry-cupcake.html">
+            <figure role="listitem" class="gallery-card">
+              <img src="images/pic6.png" alt="Strawberry Cupcake" />
+              <figcaption>Strawberry Cupcake</figcaption>
+            </figure>
+          </a>
+
+          <a class="gallery-link" href="recipes/creamy-lemon-chicken.html">
+            <figure role="listitem" class="gallery-card">
+              <img src="images/pic7.png" alt="Creamy Lemon Chicken" />
+              <figcaption>Creamy Lemon Chicken</figcaption>
+            </figure>
+          </a>
+
+          <a class="gallery-link" href="recipes/tiramisu.html">
+            <figure role="listitem" class="gallery-card">
+              <img src="images/pic8.png" alt="Tiramisu" />
+              <figcaption>Tiramisu</figcaption>
+            </figure>
+          </a>
+
+          <a class="gallery-link" href="recipes/steak-sandwiches.html">
+            <figure role="listitem" class="gallery-card">
+              <img src="images/pic9.png" alt="Steak Sandwiches" />
+              <figcaption>Steak Sandwiches</figcaption>
+            </figure>
+          </a>
+
         </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- 1) Slider JS (UMD build) -->
-  <script src="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.umd.js"></script>
-  <!-- 2) Your init -->
-  <script type="module" src="./main.js"></script>
+    <main>
+      <section class="about">
+        <div class="about-wrap">
+          <h1 class="fs-primary-heading fw-bold">About me</h1>
+  
+          <p>Welcome to <strong>SouChef</strong>: a project where technology meets creativity in the kitchen. I'm Soudabeh Torbati, an engineering student and aspiring product designer with a passion for building things that make everyday life simpler and more enjoyable.</p>
+  
+          <p>This site is more than just recipes; it's a space where I explore how design, coding, and creativity can come together. From building interactive recipe cards to experimenting with smart-kitchen ideas, I see SouChef as both a playground and a portfolio of what's possible when technology is applied in unexpected places.</p>
+  
+          <p>Here, you'll find curated recipes, visuals, and projects that reflect my curiosity and attention to detail. Whether you're here for inspiration in the kitchen or to see how I approach design and development, I hope SouChef gives you a taste of both.</p>
+  
+          <p>Outside of this project, I'm focused on engineering, web development, and product design, with the goal of creating tools that are intuitive, accessible, and impactful. If you'd like to connect or collaborate, feel free to reach out!</p>
+  
+          <!-- Image row -->
+          <div class="about-images">
+            <img src="images/about1.png" alt="roll">
+            <img src="images/about2.png" alt="flowers">
+            <img src="images/about3.png" alt="croissant">
+          </div>
+        </div>
+      </section>
+  
+    
+    </main>
+    
+    <section class="recipe-request padding-block-700">
+      <div class="container">
+        <h2 class="fs-secondary-heading fw-bold text-center" style="margin-bottom: 2rem;">
+          What recipes should we cook next?
+        </h2>
+        <p class="text-center">Tell me what dishes you’d love to see on SouChef!</p>
+        
+        <form id="recipe-form" class="request-form">
+          <label for="recipe-request" class="sr-only">Recipe suggestion</label>
+          <textarea id="recipe-request" name="recipe" rows="3" placeholder="Type your recipe idea here..." required></textarea>
+          <button type="submit" class="button">Submit</button>
+        </form>
+    
+        <!-- Hidden thank-you message -->
+        <p id="thank-you" class="text-center" style="display:none; margin-top:1rem; color:green;">
+          Thanks! Your recipe idea has been sent.
+        </p>
+      </div>
+    </section>
+
+    <div id="confetti" aria-hidden="true"></div>
+
+    
+    <script>
+      // Safe: wait until DOM exists so #confetti/#recipe-form are found
+      document.addEventListener("DOMContentLoaded", () => {
+        const form   = document.getElementById("recipe-form");
+        const thanks = document.getElementById("thank-you");
+    
+        function popConfetti() {
+          const c = document.getElementById("confetti");
+          if (!c) return console.warn("No #confetti element found.");
+    
+          const icons = ["🍒","🍰","🍓","💗","🌷","🌺","🍪","🧁","🌸"];
+          const N = 40; // number of pieces
+    
+          for (let i = 0; i < N; i++) {
+            const bit = document.createElement("span");
+            bit.className = "confetti-bit";
+            bit.textContent = icons[Math.floor(Math.random() * icons.length)];
+    
+            // random start position & speed
+            bit.style.left = Math.random() * 100 + "vw";
+            bit.style.animationDuration = (0.9 + Math.random() * 1.1) + "s";
+            bit.style.transform = `translateY(-10px) rotate(${Math.random() * 360}deg)`;
+    
+            c.appendChild(bit);
+            setTimeout(() => bit.remove(), 2200); // cleanup
+          }
+        }
+    
+        if (form) {
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const data = new FormData(form);
+    
+            try {
+              const response = await fetch("https://formspree.io/f/xwprbqby", {
+                method: "POST",
+                body: data,
+                headers: { "Accept": "application/json" }
+              });
+    
+              if (response.ok) {
+                form.style.display = "none";
+                if (thanks) thanks.style.display = "block";
+                popConfetti(); // 🎉
+              } else {
+                alert("Oops! Something went wrong. Please try again.");
+              }
+            } catch {
+              alert("Network error. Please try again.");
+            }
+          });
+        } else {
+          console.warn("No #recipe-form element found.");
+        }
+      });
+    </script>
+    
+    
+    
+  <!-- ONE unified end section (CTA + Footer) -->
+<footer class="endcap bg-accent-400 text-neutral-100">
+  <div class="container">
+    <div class="endcap-grid">
+
+      <!-- Row 1: CTA -->
+      <h2 class="fs-secondary-heading fw-bold endcap-title">
+        Simplify how your cooking routine flows today.
+      </h2>
+
+      <!-- Hidden iframe (stays on the same page) -->
+<iframe name="bd_iframe" id="bd_iframe" style="display:none;"></iframe>
+
+<form
+  action="https://buttondown.email/api/emails/embed-subscribe/soudabeh"
+  method="post"
+  class="subscribe"
+  id="subscribe-form"
+  target="bd_iframe"
+>
+  <label for="bd-email" class="sr-only">Email</label>
+  <input id="bd-email" type="email" name="email" required placeholder="Your email address" />
+  <!-- These two are important -->
+  <input type="hidden" name="embed" value="1" />
+  <input type="hidden" name="tag" value="souchef" />
+  <button type="submit">Go</button>
+</form>
+
+<div id="subscribe-success" class="success-message" style="display:none;">
+  You’re subscribed! We’ll email you when a new recipe drops.
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("subscribe-form");
+  const success = document.getElementById("subscribe-success");
+  const iframe = document.getElementById("bd_iframe");
+
+  if (!form || !iframe) return;
+
+  form.addEventListener("submit", () => {
+    // When Buttondown responds, the iframe navigates; use that as our signal.
+    const onLoad = () => {
+      form.style.display = "none";
+      success.style.display = "block";
+      iframe.removeEventListener("load", onLoad);
+    };
+    iframe.addEventListener("load", onLoad, { once: true });
+  });
+});
+</script>
+
+    
+
+
+      <!-- Row 2: Logo + Social -->
+      <div class="brand">
+        <a href="index.html" aria-label="Home">
+          <img class="logo" src="images/logo2.png" alt="SouChef" />
+        </a>
+        <ul class="social-list" role="list" aria-label="Social links">
+          <li><a href="#" aria-label="Pinterest"><svg class="social-icon"><use href="#icon-pinterest"></use></svg></a></li>
+          <li><a href="https://www.instagram.com/souchef__" aria-label="Instagram"><svg class="social-icon"><use href="#icon-instagram"></use></svg></a></li>
+        </ul>
+      </div>
+
+      <!-- Row 2: Legal -->
+      <p class="legal">
+        No spam. Unsubscribe anytime. <br>
+        Copyright 2025. All Rights Reserved
+      </p>
+
+    </div>
+
 </body>
 </html>

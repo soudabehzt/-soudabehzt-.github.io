@@ -495,7 +495,7 @@
     max-height: 70dvh;   
     aspect-ratio : 1 / 1.2;
     background-repeat: no-repeat;    /* ← stop the tiling */
-    background-image: url("images/blob.png");
+   /* background-image: url("images/blob.png"); */
     background-position: bottom left;
     }
 
@@ -803,7 +803,7 @@ p {
 /* Override for larger screens */
 @media (min-width: 768px) {
   .about-wrap {
-    max-width: 85ch;   /* wider, more readable on desktop */
+    max-width: 100ch;   /* wider, more readable on desktop */
     text-align: left;  /* looks more professional on wider screens */
   }
 }
@@ -822,7 +822,7 @@ p {
     max-width: 500;           /* don't cap the wrapper */
   }
   .about .about-wrap p {
-    max-width: 85ch;           
+    max-width: 100ch;           
     text-align: justify;    /* makes both edges straight */
   }}
 
@@ -834,6 +834,7 @@ p {
     text-align: center;       /* keep heading centered */
     margin-bottom: 3.5rem;    /* add space below heading */
   }
+
 
   .about-images {
     display: flex;
@@ -866,7 +867,7 @@ p {
     width: 400px;        /* adjust as needed */
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .about-images img:nth-child(1),
     .about-images img:nth-child(3) {
       display: none;
@@ -874,7 +875,7 @@ p {
   
     .about-images img:nth-child(2) {
       width: 1--%;        /* make it bigger on mobile */
-      max-width: 400px;  /* optional cap so it doesn’t get too wide */
+      max-width: 150%;  /* optional cap so it doesn’t get too wide */
       margin: 0 auto;    /* keep it centered */
       display: block;
     }
@@ -888,4 +889,587 @@ p {
   display: block;
 }
 
-  
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--size-600);
+  margin-top: var(--size-700);
+}
+.gallery-grid figure {
+  background: var(--clr-neutral-100);
+  border-radius: var(--size-100);
+  overflow: hidden;
+}
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.gallery-grid figcaption {
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-weight: var(--fw-semi-bold);
+}
+@media (max-width: 50em) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
+/* Recipe/gallery links look like normal text */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+/* Hover effect — lighter look */
+a:hover {
+  opacity: 0.6; /* adjust to how light you want it */
+}
+
+/* Default (desktop) */
+.primary-footer-form p {
+  margin-left: 1.5rem;   /* small push right */
+  margin-top: 0.75rem;
+  text-align: left;      /* keep text aligned left */
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  .primary-footer-form p {
+    margin-left: 0;      /* remove push */
+    text-align: center;  /* center the text */
+  }
+}
+
+/* Default (desktop/tablet) stays full width of the card */
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Mobile (max 768px) */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;   /* still one per row */
+    justify-items: center;        /* center them */
+  }
+
+  .gallery-grid img {
+    max-width: 90%;   /* smaller than screen, adjust % to taste */
+    height: auto;
+  }
+
+  .gallery-card {
+    width: 100%;
+    max-width: 350px; /* cap so they don’t look huge */
+  }
+}
+/* Mobile (max 768px) */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;    /* one per row */
+    justify-items: center;         /* center the cards */
+  }
+
+  .gallery-card {
+    max-width: 350px;              /* keep pink card smaller */
+    width: 100%;
+    text-align: center;            /* center caption too */
+  }
+
+  .gallery-card img {
+    max-width: 100%;               /* image stays inside pink card */
+    height: auto;
+    margin: 0 auto;                /* center image itself */
+    display: block;
+    border-radius: 12px;
+  }
+}
+
+.recipe-request {
+  background: rgba(255, 192, 203, 0.15); /* soft light pink background */
+  border-radius: 12px;
+  text-align: center;
+}
+
+.request-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.request-form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #f8a8c6;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+  outline: none;
+}
+
+.request-form textarea:focus {
+  border-color: #e67cb0;
+  box-shadow: 0 0 0 3px rgba(230, 124, 176, 0.3);
+}
+
+.request-form button {
+  background: #4a1748; /* brand purple */
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.request-form button:hover {
+  background: #6d2670;
+}
+.request-form textarea {
+  border: 2px solid #f8cdda; /* your footer pink */
+
+  outline: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+/* remove the red border on invalid/required state */
+.request-form textarea:invalid {
+  border-color: #f8cdda; /* same as normal */
+  box-shadow: none;
+}
+
+/* optional: highlight only when typing */
+.request-form textarea:focus {
+  border-color: #ff7eb3; /* a slightly darker pink if you want */
+  box-shadow: 0 0 0 3px rgba(255, 126, 179, 0.3);
+}
+
+.recipe-request {
+  background-color: hsla(306, 50%, 89%, 0.7); /* same pink as photo cards */
+  border-radius: 12px;
+  text-align: center;
+  padding: var(--size-700);
+}
+
+.primary-footer {
+  padding-block: var(--size-400);
+}
+
+.primary-footer-wrapper {
+  gap: var(--size-300);
+}
+
+.primary-footer-form p {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.about-pre {
+  text-align: center;
+  margin: 0; /* remove extra spacing */
+}
+
+/* hide by default (desktop & larger screens) */
+.about-pre img {
+  display: none;
+}
+
+/* show + size it only on mobile */
+@media (max-width: 768px) {
+  .about-pre img {
+    display: block;
+    max-width: 60%;   /* small, doesn’t overwhelm */
+    width: 100%;
+    height: auto;
+    margin: 0.5rem auto; /* little breathing space */
+  }
+}
+
+.hero {
+  padding-top: 9rem;   /* keep the top */
+  padding-bottom: 1rem; /* reduce the bottom */
+}
+
+.fs-primary-heading {
+  margin-top: 4rem; /* adjust as needed */
+}
+
+/* === Widen About Me on mobile === */
+@media (max-width: 768px) {
+  /* let the wrapper get much wider */
+  .about .about-wrap {
+    max-width: 75%;        /* try 90vw (or 420px / 480px if you prefer fixed) */
+    margin-inline: auto;
+    padding-inline: 1rem;   /* keeps edges comfy */
+  }
+
+  /* remove the 32ch clamp on paragraphs here */
+  .about .about-wrap p {
+    max-width: none;        /* overrides the p:not([class]) and local 32ch */
+  }
+}
+
+/* Make About Me wider on desktop */
+.about .about-wrap {
+  max-width: 110ch;    /* or try 72rem / 1000px if you prefer fixed */
+  margin-inline: auto;
+}
+
+.about .about-wrap p {
+  max-width: none;     /* removes the 32ch clamp from global p:not([class]) */
+}
+
+/* Hero section tweaks */
+.hero {
+  padding-top: 4rem;          /* reduce gap under logo */
+  padding-bottom: 3rem;
+}
+
+.hero__image img {
+  max-width: 380px;           /* smaller hat on desktop */
+  margin-top: -2rem;          /* lift it closer to heading */
+}
+
+/* Hero heading + tagline */
+.fs-primary-heading {
+  font-size: clamp(2.5rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero .flow p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  max-width: 45ch;
+  margin-inline: auto;
+}
+
+/* About section styling */
+.about {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: hsla(306, 71%, 95%, 0.5); /* soft pink backdrop */
+}
+
+.about h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.about h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--clr-accent-400);
+  border-radius: 2px;
+  margin: 0.75rem auto 0;
+}
+
+/* About text readability */
+.about p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.cta {
+  background-color: var(--clr-accent-400);  /* same as footer */
+  color: var(--clr-neutral-100);
+}
+
+.primary-footer {
+  background-color: var(--clr-accent-400);  /* unify with CTA */
+}
+/* Compact footer layout */
+.primary-footer { padding-block: var(--size-400); }
+
+/* Desktop/grid */
+.primary-footer-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "logo-social form"
+    "legal      legal";
+  align-items: center;
+  gap: var(--size-400);
+}
+
+/* Areas */
+.primary-footer-logo-social { grid-area: logo-social; display:flex; flex-direction:column; gap: var(--size-500); }
+.primary-footer-form        { grid-area: form; display:flex; flex-direction:column; align-items:flex-end; gap: .5rem; }
+.primary-footer-legal       { grid-area: legal; text-align:center; opacity:.9; margin-top: .25rem; }
+
+/* Keep subscribe form tidy */
+.subscribe { display:flex; gap:.5rem; width:100%; max-width: 520px; }
+.subscribe input[type="email"]{ flex:1; padding:.7rem 1rem; border-radius:10px; border:1px solid rgba(255,255,255,.35); background:rgba(255,255,255,.85); }
+.subscribe button{ padding:.7rem 1rem; border-radius:10px; border:0; background:#4a1748; color:#fff; font-weight:700; }
+
+/* Logo size and social spacing */
+.primary-footer-logo-social .logo { max-width: 180px; height:auto; }
+.social-list { display:flex; gap: var(--size-600); }
+
+/* Mobile: stack neatly, center everything */
+@media (max-width: 768px){
+  .primary-footer-wrapper{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo-social"
+      "form"
+      "legal";
+    gap: var(--size-300);
+  }
+  .primary-footer-form{ align-items:center; }
+  .subscribe{ max-width: 100%; }
+  .primary-footer-logo-social{ align-items:center; text-align:center; }
+}
+
+/* Make CTA smaller so footer blob is visible */
+.cta {
+  padding-block: var(--size-500); /* tighter than 700 */
+}
+
+/* Two-column CTA: text left, form right (merge boxes) */
+.cta .cta-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: var(--size-600);
+}
+
+/* Compact subscribe form (no big purple capsule) */
+.subscribe {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .5rem;
+  margin: 0;                /* remove outer chunkiness */
+  background: transparent;  /* let background/“blob” show through */
+  padding: 0;
+}
+
+.subscribe input[type="email"] {
+  padding: .7rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.85);
+  color: #3b1e35;
+}
+
+.subscribe button {
+  padding: .7rem 1rem;
+  border: 0;
+  border-radius: 10px;
+  background: #4a1748;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Success message spacing */
+.success-message { margin-top: .75rem; }
+
+/* Mobile: stack the CTA, keep it snug */
+@media (max-width: 768px) {
+  .cta .cta-inner {
+    grid-template-columns: 1fr;
+    gap: var(--size-400);
+    text-align: center;
+  }
+  .subscribe { grid-template-columns: 1fr auto; justify-content: center; }
+}
+
+/* Optional: show more of the footer blob by reducing footer top padding a bit */
+.primary-footer { padding-top: var(--size-500); }
+
+/* unified end section */
+.endcap{
+  position: relative;
+  isolation: isolate;
+  padding-block: var(--size-600);  /* shorter than your old CTA/footer */
+}
+
+/* blob behind BOTH CTA + footer content */
+.endcap::before{
+  content:"";
+  position:absolute; inset:0; z-index:0;
+  background-image: url("images/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  /* tune these to taste */
+  background-size: 70% auto, 58% auto;
+  background-position: -12rem -8rem, 85% -12rem;
+  opacity:.28;
+}
+.endcap .container{ position:relative; z-index:1; }
+
+/* layout: 2 rows, 2 cols on desktop */
+.endcap-grid{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-areas:
+    "title   form"
+    "brand   legal";
+  gap: var(--size-600);
+  align-items: center;
+}
+.endcap-title{ grid-area:title; margin:0; }
+.subscribe{ grid-area:form; display:grid; grid-template-columns:1fr auto; gap:.5rem; margin:0; }
+.brand{ grid-area:brand; display:flex; align-items:center; gap: var(--size-600); }
+.legal{ grid-area:legal; margin:0; text-align:right; opacity:.9; }
+
+/* subscribe form styling */
+.subscribe input[type="email"]{
+  padding:.7rem 1rem; border-radius:10px;
+  border:1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.88); color:#3b1e35;
+}
+.subscribe button{
+  padding:.7rem 1rem; border:0; border-radius:10px;
+  background:#4a1748; color:#fff; font-weight:700; cursor:pointer;
+}
+
+/* logo + icons */
+.brand .logo{ max-width:180px; height:auto; }
+.social-list{ display:flex; gap: var(--size-600); }
+
+/* mobile: stack neatly */
+@media (max-width:768px){
+  .endcap-grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "form"
+      "brand"
+      "legal";
+    gap: var(--size-400);
+    text-align: center;
+  }
+  .legal{ text-align:center; }
+  .brand{ justify-content:center; }
+}
+
+/* === ONE-AND-ONLY top gradient (from very top, fades quickly to white) === */
+html,
+body { height: 100%; }
+
+html {
+  --top-gradient-height: 320px; /* tweak: smaller = becomes white sooner */
+  background: linear-gradient(180deg, #fdeef4 0%, #ffffff var(--top-gradient-height)) no-repeat fixed;
+}
+
+/* Body paints nothing (prevents extra gradients) */
+body { background: transparent !important; }
+
+/* Make all top sections transparent so they DON'T restart a gradient */
+.primary-header,
+.hero,
+.about-pre,
+.about,
+.carousel,
+.recipe-request,   /* <-- include the submit section */
+.request-form {    /* <-- and the inner form */
+  background: transparent !important;
+}
+
+/* Kill any decorative pseudo backgrounds that could draw lines */
+.primary-header::before,
+.primary-header::after,
+.hero::before,
+.hero::after {
+  content: none !important;
+  background: none !important;
+}
+
+/* Keep footer exactly as-is */
+.primary-footer, .endcap { background: var(--clr-accent-400) !important; }
+
+/* (Unrelated helper you had) */
+.about-images img { max-width: 150px; }
+
+
+.about-images img[alt="flowers"] {
+  max-width: 100%; /* make flowers wider */
+}
+
+/* White background for recipe cards */
+.gallery-grid .gallery-card {
+  background-color: #ffffff !important; /* force white */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+
+
+.about {
+  position: relative;
+  padding-bottom: 6rem;
+}
+
+.recipe-request {
+  background: #fdeef4;
+  clip-path: ellipse(120% 100% at 50% 0%);
+  padding: 3rem 1rem;
+}
+
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.confetti-bit {
+  position: absolute;
+  top: -10px;
+  font-size: 22px;
+  animation: fall linear forwards;
+  user-select: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
+/* Full-screen layer for confetti */
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999999;     /* put it above everything */
+}
+
+/* Each emoji/shard */
+.confetti-bit {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-size: 22px;
+  line-height: 1;
+  will-change: transform, opacity;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.9;
+  }
+}
+
