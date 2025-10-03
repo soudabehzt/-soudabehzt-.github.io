@@ -142,17 +142,17 @@
   
   /* button */
   
-.button {
-  display: inline-flex;
-  cursor: pointer;
-  text-decoration: none;
-  border: 0;
+  .button {
+    display: inline-flex;
+    cursor: pointer;
+    text-decoration: none;
+    border: 0;
   border-radius: 50px;
-  padding: 1.25em 2.5em;
+    padding: 1.25em 2.5em;
   font-weight: 500;
-  font-size: var(--fs-button);
-  line-height: 1;
-  color: var(--clr-neutral-100);
+    font-size: var(--fs-button);
+    line-height: 1;
+    color: var(--clr-neutral-100);
   background: linear-gradient(135deg, #d4a574, #e6b894, #f0d0a8);
   box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3), 0 4px 15px rgba(255, 182, 193, 0.2);
   transition: all 0.3s ease;
@@ -180,7 +180,7 @@
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
-}
+  }
   
   .button[data-type="inverted"] {
     background-color: var(--clr-neutral-100);
@@ -514,16 +514,16 @@
       order: -1;
     }
   }
-.hero__image::before {
-  content: "";
-  position: absolute;
-  z-index: -4;
-  right: 0;
-  top: 0;
-  width: 87%;
-  max-height: 70vh;
-  max-height: 70dvh;   
-  aspect-ratio : 1 / 1.2;
+   .hero__image::before {
+    content: "";
+    position: absolute;
+    z-index: -4;
+    right: 0;
+    top: 0;
+    width: 87%;
+    max-height: 70vh;
+    max-height: 70dvh;   
+    aspect-ratio : 1 / 1.2;
   background: radial-gradient(ellipse at center, rgba(139, 111, 71, 0.1) 0%, transparent 70%);
   border-radius: 50%;
   animation: rotate 20s linear infinite;
@@ -823,7 +823,7 @@ p {
 /* Override for larger screens */
 @media (min-width: 768px) {
   .about-wrap {
-    max-width: 100ch;   /* wider, more readable on desktop */
+    max-width: 140ch;   /* a bit wider, more readable on desktop */
     text-align: left;  /* looks more professional on wider screens */
   }
   
@@ -850,7 +850,7 @@ p {
     max-width: 500;           /* don't cap the wrapper */
   }
   .about .about-wrap p {
-    max-width: 100ch;           
+    max-width: 140ch;           
     text-align: justify;    /* makes both edges straight */
   }}
 
@@ -871,11 +871,11 @@ p {
     margin-top: 2rem;          /* space above images */
   }
   
-.about-images img {
-  width: 200px;              /* adjust to your taste */
-  height: auto;              /* keep proportions */
-  border-radius: 8px;        /* optional: rounded corners */
-}
+  .about-images img {
+    width: 200px;              /* adjust to your taste */
+    height: auto;              /* keep proportions */
+    border-radius: 8px;        /* optional: rounded corners */
+  }
   
   .about-images {
     display: flex;
@@ -900,7 +900,7 @@ p {
     .about-images img:nth-child(3) {
       display: none;
     }
-
+  
     .about-images img:nth-child(2) {
       width: 100%;
       max-width: 400px;
@@ -1271,8 +1271,9 @@ button[type="submit"]:hover {
 
 /* Make About Me wider on desktop */
 .about .about-wrap {
-  max-width: 110ch;    /* or try 72rem / 1000px if you prefer fixed */
+  max-width: 140ch;    /* a bit wider text */
   margin-inline: auto;
+  width: 100%;
 }
 
 .about .about-wrap p {
@@ -1338,14 +1339,14 @@ button[type="submit"]:hover {
 .fs-primary-heading::after {
   content: '';
   position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
   height: 3px;
-  background: linear-gradient(90deg, #8b6f47, #a68b5b, #b8946f, #c4a574);
+  background: linear-gradient(90deg, #8b6f47, #a68b5b, #b8946f);
   border-radius: 15px;
-  animation: expandLine 2s ease-out 0.5s both;
-  box-shadow: 0 2px 8px rgba(139, 111, 71, 0.4);
+  box-shadow: 0 2px 8px rgba(139, 111, 71, 0.3);
 }
 
 @keyframes gradientText {
@@ -1391,7 +1392,7 @@ button[type="submit"]:hover {
 @media (max-width: 768px) {
   .hero .flow p {
     text-align: center;
-    margin-inline: auto;
+  margin-inline: auto;
   }
 }
 
@@ -1405,15 +1406,6 @@ button[type="submit"]:hover {
   position: relative;
 }
 
-.about h1::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: var(--clr-accent-400);
-  border-radius: 2px;
-  margin: 0.75rem auto 0;
-}
 
 /* About text readability */
 .about p {
@@ -1570,13 +1562,104 @@ button[type="submit"]:hover {
   .endcap-title {
     text-align: center !important;
     margin: 0 auto !important;
-    max-width: 90%;
+    max-width: 95%;
+    padding: 0 1rem;
   }
   
   .endcap-title .fs-secondary-heading {
-    font-size: 1.5rem !important;
-    line-height: 1.3 !important;
+    font-size: 1.8rem !important;
+    line-height: 1.4 !important;
     text-align: center !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .endcap-title .fs-secondary-heading {
+    font-size: 1.6rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.3px;
+    word-spacing: 0.5px;
+  }
+  
+  .endcap-title {
+    padding: 0 0.5rem;
+    max-width: 98%;
+  }
+}
+
+/* Mobile improvements for CTA text on other pages */
+@media (max-width: 768px) {
+  .cta .fs-secondary-heading {
+    font-size: 1.8rem !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta .fs-secondary-heading {
+    font-size: 1.6rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.3px;
+    word-spacing: 0.5px;
+  }
+}
+
+/* Mobile improvements for primary headings */
+@media (max-width: 768px) {
+  .fs-primary-heading {
+    font-size: 2.2rem !important;
+    line-height: 1.3 !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    word-spacing: 0.5px;
+    /* Improve contrast on mobile */
+    background: #8b6f47 !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 1px 3px rgba(139, 111, 71, 0.3);
+  }
+}
+
+@media (max-width: 480px) {
+  .fs-primary-heading {
+    font-size: 1.9rem !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.2px;
+    word-spacing: 0.3px;
+  }
+}
+
+/* Mobile improvements for secondary headings */
+@media (max-width: 768px) {
+  .fs-secondary-heading {
+    font-size: 2rem !important;
+    line-height: 1.3 !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    word-spacing: 0.5px;
+    /* Improve contrast on mobile */
+    background: #8b6f47 !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 1px 3px rgba(139, 111, 71, 0.3);
+  }
+}
+
+@media (max-width: 480px) {
+  .fs-secondary-heading {
+    font-size: 1.7rem !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.2px;
+    word-spacing: 0.3px;
   }
 }
 .subscribe{ grid-area:form; display:grid; grid-template-columns:1fr auto; gap:.5rem; margin:0; }
@@ -1706,6 +1789,8 @@ body:has(.hero) .hero::after {
   position: relative;
   padding-bottom: 6rem;
   overflow: hidden;
+  max-width: none !important;
+  width: 100% !important;
 }
 
 .about::before {
@@ -1727,6 +1812,8 @@ body:has(.hero) .hero::after {
   position: relative;
   z-index: 1;
   animation: fadeInUp 1s ease-out;
+  max-width: none !important;
+  width: 100% !important;
 }
 
 .about h1 {
