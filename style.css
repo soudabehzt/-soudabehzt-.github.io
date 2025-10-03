@@ -867,7 +867,7 @@ p {
   .about-images {
     display: flex;
     justify-content: center;   /* center the row */
-    gap: 1.5rem;               /* space between images */
+    gap: 5rem;                 /* much more space between images */
     margin-top: 2rem;          /* space above images */
   }
   
@@ -880,7 +880,7 @@ p {
   .about-images {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;         /* space between images */
+    gap: 5rem;           /* much more space between images */
     margin-top: 2rem;
   }
   
@@ -1331,9 +1331,9 @@ button[type="submit"]:hover {
   animation: gradientText 3s ease infinite;
   text-shadow: 0 2px 4px rgba(139, 111, 71, 0.4);
   position: relative;
-  font-family: 'Bodoni Moda', serif;
-  font-weight: 400;
-  letter-spacing: 0.5px;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-weight: 300;
+  letter-spacing: 1.2px;
 }
 
 .fs-primary-heading::after {
@@ -1342,11 +1342,16 @@ button[type="submit"]:hover {
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
+  width: 500px;
   height: 3px;
   background: linear-gradient(90deg, #8b6f47, #a68b5b, #b8946f);
   border-radius: 15px;
   box-shadow: 0 2px 8px rgba(139, 111, 71, 0.3);
+  animation: expandLine 1.5s ease-out 0.8s both;
+}
+
+header .meta {
+  margin-top: 4rem !important;
 }
 
 @keyframes gradientText {
@@ -1401,7 +1406,7 @@ button[type="submit"]:hover {
 
 .about h1 {
   font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4rem;
   text-align: center;
   position: relative;
 }
@@ -1412,6 +1417,41 @@ button[type="submit"]:hover {
   line-height: 1.7;
   margin-bottom: 1rem;
   opacity: 0.9;
+}
+
+/* About text box styling - same as hero text */
+.about-text-box {
+  animation: fadeInUp 1s ease-out 0.3s both !important;
+  position: relative !important;
+  padding: 1.5rem !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 248, 240, 0.6)) !important;
+  border-radius: 25px !important;
+  backdrop-filter: blur(15px) !important;
+  border: 2px solid rgba(255, 182, 193, 0.3) !important;
+  box-shadow: 0 12px 40px rgba(255, 182, 193, 0.15), 0 4px 20px rgba(255, 218, 185, 0.1) !important;
+  margin-bottom: 2rem !important;
+}
+
+.about-text-box p {
+  font-size: 1.1rem !important;
+  opacity: 0.9 !important;
+  margin-left: 0 !important;
+  text-align: left !important;
+  font-family: 'Georgia', serif !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1rem !important;
+}
+
+.about-text-box p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Center about text box on mobile */
+@media (max-width: 768px) {
+  .about-text-box {
+    text-align: center !important;
+    margin-inline: auto !important;
+  }
 }
 
 .cta {
@@ -1616,9 +1656,10 @@ button[type="submit"]:hover {
   .fs-primary-heading {
     font-size: 2.2rem !important;
     line-height: 1.3 !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.3px;
-    word-spacing: 0.5px;
+    font-weight: 300 !important;
+    font-family: 'Playfair Display', 'Times New Roman', serif !important;
+    letter-spacing: 0.8px;
+    word-spacing: 1px;
     /* Improve contrast on mobile */
     background: #8b6f47 !important;
     -webkit-background-clip: text !important;
@@ -1642,9 +1683,10 @@ button[type="submit"]:hover {
   .fs-secondary-heading {
     font-size: 2rem !important;
     line-height: 1.3 !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.3px;
-    word-spacing: 0.5px;
+    font-weight: 300 !important;
+    font-family: 'Playfair Display', 'Times New Roman', serif !important;
+    letter-spacing: 0.7px;
+    word-spacing: 0.9px;
     /* Improve contrast on mobile */
     background: #8b6f47 !important;
     -webkit-background-clip: text !important;
@@ -1703,6 +1745,53 @@ body:has(.hero) {
   background: #fefcf8;
   position: relative;
   overflow-x: hidden;
+}
+
+
+
+
+/* Decorative line design with pattern */
+body:has(.hero)::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: 
+    linear-gradient(90deg, 
+      transparent 0%, 
+      #8b6f47 10%, 
+      #a68b5b 20%, 
+      #b8946f 30%, 
+      #c4a574 40%, 
+      #d4a574 50%, 
+      #c4a574 60%, 
+      #b8946f 70%, 
+      #a68b5b 80%, 
+      #8b6f47 90%, 
+      transparent 100%
+    );
+  z-index: 1000;
+}
+
+/* Decorative dots pattern */
+body:has(.hero)::after {
+  content: '';
+  position: fixed;
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-image: 
+    radial-gradient(circle at 10% 50%, #8b6f47 1px, transparent 1px),
+    radial-gradient(circle at 30% 50%, #a68b5b 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, #b8946f 1px, transparent 1px),
+    radial-gradient(circle at 70% 50%, #a68b5b 1px, transparent 1px),
+    radial-gradient(circle at 90% 50%, #8b6f47 1px, transparent 1px);
+  background-size: 20% 100%, 20% 100%, 20% 100%, 20% 100%, 20% 100%;
+  background-repeat: no-repeat;
+  z-index: 999;
 }
 
 @keyframes gradientShift {
@@ -1764,7 +1853,7 @@ body:has(.hero) .hero::after {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-family: 'Bodoni Moda', serif;
+  font-family: 'Playfair Display', 'Times New Roman', serif;
   font-weight: 300;
   letter-spacing: 1px;
   position: relative;
@@ -1818,6 +1907,16 @@ body:has(.hero) .hero::after {
 
 .about h1 {
   animation: slideInLeft 1.2s ease-out 0.2s both;
+}
+
+/* Made by SouChef animation */
+.carousel h2 {
+  animation: slideInLeft 1.2s ease-out 0.4s both;
+}
+
+/* What recipes should I cook next animation */
+.recipe-request h2 {
+  animation: slideInLeft 1.2s ease-out 0.6s both;
 }
 
 .about p {
