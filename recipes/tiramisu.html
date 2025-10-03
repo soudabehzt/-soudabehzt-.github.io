@@ -1,60 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tiramisu | SouChef</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:#2c2c2c;background:url("../images/pic8.png") no-repeat center center fixed;background-size:cover;}
-    body::before{content:"";position:fixed;inset:0;background:rgba(255,255,255,0.5);z-index:0;}
-    .page{position:relative;z-index:1;max-width:1100px;margin:3rem auto;padding:2rem;background:rgba(255,255,255,0.6);border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);}
-    .layout{display:grid;gap:2rem;} @media (min-width:64em){.layout{grid-template-columns:1fr 320px;align-items:start;}}
-    h1,h2{color:#4a1748;} ul,ol{padding-left:1.2rem;}
-    .meta{display:flex;gap:.75rem 1.25rem;flex-wrap:wrap;font-weight:600;margin:.25rem 0 1rem;}
-    .panel{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-    .panel h3{margin:0 0 .75rem 0;color:#4a1748;}
-    .nutri{font-size:.95rem;} .nutri table{width:100%;border-collapse:collapse;}
-    .nutri td{padding:.5rem .25rem;border-bottom:1px solid rgba(240,240,240,0.5);} .nutri td:first-child{font-weight:600;width:60%;}
-    .note{margin-top:.75rem;font-size:.9rem;color:#5a5a5a;} @media (min-width:64em){.sticky{position:sticky;top:1.25rem;}}
+    body {
+      margin: 0;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: #7d5f4d;
+      background: url("../images/pic8.png") no-repeat center center fixed;
+      background-size: cover;
+      background-attachment: fixed;
+      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(254, 252, 248, 0.85);
+      z-index: 0;
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: rgba(254, 252, 248, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(139, 111, 71, 0.2);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .layout {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 64em) {
+      .layout {
+        grid-template-columns: 1fr 320px;
+        align-items: start;
+      }
+    }
+    h1, h2 {
+      color: #8b6f47;
+      font-family: 'Bodoni Moda', serif;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    ul, ol {
+      padding-left: 1.2rem;
+      color: #7d5f4d;
+    }
+    .meta {
+      display: flex;
+      gap: .75rem 1.25rem;
+      flex-wrap: wrap;
+      font-weight: 600;
+      margin: .25rem 0 1rem;
+      color: #8b6f47;
+    }
+    .panel {
+      background: rgba(255, 255, 255, 0.7);
+      border: 2px solid rgba(212, 165, 116, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(139, 111, 71, 0.1);
+      margin-top: 12rem;
+    }
+    .panel h3 {
+      margin: 0 0 .75rem 0;
+      color: #8b6f47;
+      font-family: 'Bodoni Moda', serif;
+    }
+    .nutri {
+      font-size: .95rem;
+    }
+    .nutri table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .nutri td {
+      padding: .5rem .25rem;
+      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+      color: #7d5f4d;
+    }
+    .nutri td:first-child {
+      font-weight: 600;
+      width: 60%;
+    }
+    .note {
+      margin-top: .75rem;
+      font-size: .9rem;
+      color: #8b6f47;
+    }
+    @media (min-width: 64em) {
+      .sticky {
+        position: sticky;
+        top: 1.25rem;
+      }
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #8b6f47;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      transition: color 0.3s ease;
+    }
+    .back-link:hover {
+      color: #d4a574;
+    }
+    .primary-header .logo img {
+      max-width: 200px;
+      height: auto;
+    }
+    .primary-header {
+      position: relative;
+      z-index: 10;
+    }
+    .primary-header .logo {
+      position: relative;
+      z-index: 11;
+    }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header class="primary-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="../index.html" class="logo">
+          <img src="../images/logo2.png" alt="SouChef" />
+        </a>
+      </div>
+    </div>
+  </header>
+
   <main class="page">
     <div class="layout">
       <article>
         <header>
+          <a href="../index.html" class="back-link">← Back to Home</a>
           <h1 class="fs-primary-heading fw-bold">Tiramisu</h1>
-          <div class="meta"><span>⏱ 30 min + chill</span><span>🍽 8 servings</span><span>🧑‍🍳 Easy</span></div>
-          <p>Classic coffee-soaked ladyfingers layered with creamy mascarpone.</p>
+          <div class="meta"><span>⏱ 4 hr 30 min</span><span>🍽 8 servings</span><span>🧑‍🍳 Medium</span></div>
+          <p>Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream.</p>
         </header>
         <section class="padding-block-500">
           <h2 class="fs-600 fw-bold">Ingredients</h2>
           <ul>
-            <li>300 g ladyfingers</li><li>500 g mascarpone</li><li>3 eggs (or 300 ml whipping cream)</li>
-            <li>⅔ cup sugar</li><li>1½ cups strong coffee/espresso (cooled)</li><li>Cocoa powder</li>
+            <li>500g mascarpone cheese</li>
+            <li>6 large eggs, separated</li>
+            <li>150g sugar</li>
+            <li>300ml strong coffee, cooled</li>
+            <li>2 tbsp coffee liqueur (optional)</li>
+            <li>24 ladyfinger cookies</li>
+            <li>Cocoa powder for dusting</li>
           </ul>
         </section>
         <section class="padding-block-500">
           <h2 class="fs-600 fw-bold">Steps</h2>
           <ol>
-            <li>Whisk yolks with sugar; fold in mascarpone. Whip whites (or cream); fold.</li>
-            <li>Quickly dip ladyfingers in coffee; layer with cream. Repeat.</li>
-            <li>Chill 4+ hours; dust with cocoa before serving.</li>
+            <li>Beat egg yolks with sugar until pale and thick.</li>
+            <li>Add mascarpone and mix until smooth.</li>
+            <li>Beat egg whites until stiff peaks form.</li>
+            <li>Fold egg whites into mascarpone mixture.</li>
+            <li>Mix coffee with liqueur in a shallow dish.</li>
+            <li>Dip ladyfingers in coffee and layer in dish.</li>
+            <li>Spread half the cream over ladyfingers.</li>
+            <li>Repeat layers and refrigerate 4+ hours.</li>
+            <li>Dust with cocoa powder before serving.</li>
           </ol>
         </section>
       </article>
       <aside class="panel sticky nutri" aria-label="Nutrition facts">
         <h3 class="fw-bold">Nutrition (per serving)</h3>
         <table>
-          <tr><td>Calories</td><td>~ 360 kcal</td></tr>
+          <tr><td>Calories</td><td>~ 420 kcal</td></tr>
+          <tr><td>Protein</td><td>~ 12 g</td></tr>
           <tr><td>Carbohydrates</td><td>~ 35 g</td></tr>
-          <tr><td>Fat</td><td>~ 20 g</td></tr>
-          <tr><td>Protein</td><td>~ 7 g</td></tr>
-          <tr><td>Sugar</td><td>~ 21 g</td></tr>
+          <tr><td>Fat</td><td>~ 28 g</td></tr>
+          <tr><td>Sugar</td><td>~ 28 g</td></tr>
+          <tr><td>Sodium</td><td>~ 180 mg</td></tr>
         </table>
-        <p class="note">Varies by cream and sugar used.</p>
+        <p class="note">Rich and indulgent dessert - enjoy in moderation.</p>
       </aside>
     </div>
   </main>
+
+
 </body>
 </html>

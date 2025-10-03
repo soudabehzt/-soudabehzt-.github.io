@@ -1,64 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pizza | SouChef</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:#2c2c2c;background:url("../images/pic4.png") no-repeat center center fixed;background-size:cover;}
-    body::before{content:"";position:fixed;inset:0;background:rgba(255,255,255,0.5);z-index:0;}
-    .page{position:relative;z-index:1;max-width:1100px;margin:3rem auto;padding:2rem;background:rgba(255,255,255,0.6);border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);}
-    .layout{display:grid;gap:2rem;} @media (min-width:64em){.layout{grid-template-columns:1fr 320px;align-items:start;}}
-    h1,h2{color:#4a1748;} ul,ol{padding-left:1.2rem;}
-    .meta{display:flex;gap:.75rem 1.25rem;flex-wrap:wrap;font-weight:600;margin:.25rem 0 1rem;}
-    .panel{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-    .panel h3{margin:0 0 .75rem 0;color:#4a1748;}
-    .nutri{font-size:.95rem;} .nutri table{width:100%;border-collapse:collapse;}
-    .nutri td{padding:.5rem .25rem;border-bottom:1px solid rgba(240,240,240,0.5);} .nutri td:first-child{font-weight:600;width:60%;}
-    .note{margin-top:.75rem;font-size:.9rem;color:#5a5a5a;} @media (min-width:64em){.sticky{position:sticky;top:1.25rem;}}
+    body {
+      margin: 0;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: #7d5f4d;
+      background: url("../images/pic4.png") no-repeat center center fixed;
+      background-size: cover;
+      background-attachment: fixed;
+      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(254, 252, 248, 0.85);
+      z-index: 0;
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: rgba(254, 252, 248, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(139, 111, 71, 0.2);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .layout {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 64em) {
+      .layout {
+        grid-template-columns: 1fr 320px;
+        align-items: start;
+      }
+    }
+    h1, h2 {
+      color: #8b6f47;
+      font-family: 'Bodoni Moda', serif;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    ul, ol {
+      padding-left: 1.2rem;
+      color: #7d5f4d;
+    }
+    .meta {
+      display: flex;
+      gap: .75rem 1.25rem;
+      flex-wrap: wrap;
+      font-weight: 600;
+      margin: .25rem 0 1rem;
+      color: #8b6f47;
+    }
+    .panel {
+      background: rgba(255, 255, 255, 0.7);
+      border: 2px solid rgba(212, 165, 116, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(139, 111, 71, 0.1);
+      margin-top: 12rem;
+    }
+    .panel h3 {
+      margin: 0 0 .75rem 0;
+      color: #8b6f47;
+      font-family: 'Bodoni Moda', serif;
+    }
+    .nutri {
+      font-size: .95rem;
+    }
+    .nutri table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .nutri td {
+      padding: .5rem .25rem;
+      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+      color: #7d5f4d;
+    }
+    .nutri td:first-child {
+      font-weight: 600;
+      width: 60%;
+    }
+    .note {
+      margin-top: .75rem;
+      font-size: .9rem;
+      color: #8b6f47;
+    }
+    @media (min-width: 64em) {
+      .sticky {
+        position: sticky;
+        top: 1.25rem;
+      }
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #8b6f47;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      transition: color 0.3s ease;
+    }
+    .back-link:hover {
+      color: #d4a574;
+    }
+    .primary-header .logo img {
+      max-width: 200px;
+      height: auto;
+    }
+    .primary-header {
+      position: relative;
+      z-index: 10;
+    }
+    .primary-header .logo {
+      position: relative;
+      z-index: 11;
+    }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header class="primary-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="../index.html" class="logo">
+          <img src="../images/logo2.png" alt="SouChef" />
+        </a>
+      </div>
+    </div>
+  </header>
+
   <main class="page">
     <div class="layout">
       <article>
         <header>
+          <a href="../index.html" class="back-link">← Back to Home</a>
           <h1 class="fs-primary-heading fw-bold">Pizza</h1>
-          <div class="meta"><span>⏱ 1 hr 30 min</span><span>🍽 2–3 servings</span><span>🧑‍🍳 Medium</span></div>
-          <p>Simple homemade pizza with quick dough, bright sauce, and gooey mozzarella.</p>
+          <div class="meta"><span>⏱ 2 hr 30 min</span><span>🍽 8 servings</span><span>🧑‍🍳 Medium</span></div>
+          <p>Classic homemade pizza with fresh dough and your favorite toppings.</p>
         </header>
         <section class="padding-block-500">
           <h2 class="fs-600 fw-bold">Ingredients</h2>
           <ul>
-            <li>2 cups flour, 1 tsp yeast, 1 tsp sugar, ¾ tsp salt, ¾ cup warm water</li>
-            <li>2 tbsp olive oil</li>
-            <li>½ cup pizza sauce</li>
-            <li>200 g mozzarella, shredded</li>
-            <li>Toppings of choice (pepperoni, olives, basil)</li>
+            <li>3 cups all-purpose flour</li>
+            <li>1 packet active dry yeast</li>
+            <li>1 tsp salt</li>
+            <li>1 tbsp olive oil</li>
+            <li>1 cup warm water</li>
+            <li>1/2 cup pizza sauce</li>
+            <li>2 cups shredded mozzarella</li>
+            <li>Your favorite toppings</li>
+            <li>Cornmeal for dusting</li>
           </ul>
         </section>
         <section class="padding-block-500">
           <h2 class="fs-600 fw-bold">Steps</h2>
           <ol>
-            <li>Mix dough, knead 5–8 min, rise 45–60 min.</li>
-            <li>Preheat oven & stone/sheet to 250°C/475°F.</li>
-            <li>Stretch dough, top with sauce, cheese, toppings.</li>
-            <li>Bake 10–12 min until crust is golden and cheese bubbles.</li>
+            <li>Mix yeast with warm water and let sit 5 minutes.</li>
+            <li>Combine flour and salt in a large bowl.</li>
+            <li>Add yeast mixture and olive oil, knead until smooth.</li>
+            <li>Let dough rise in oiled bowl for 1 hour.</li>
+            <li>Preheat oven to 500°F with pizza stone.</li>
+            <li>Roll out dough on cornmeal-dusted surface.</li>
+            <li>Add sauce, cheese, and toppings.</li>
+            <li>Bake for 10-12 minutes until crust is golden.</li>
+            <li>Let cool slightly before slicing and serving.</li>
           </ol>
         </section>
       </article>
       <aside class="panel sticky nutri" aria-label="Nutrition facts">
-        <h3 class="fw-bold">Nutrition (per slice, ~1/6)</h3>
+        <h3 class="fw-bold">Nutrition (per serving)</h3>
         <table>
-          <tr><td>Calories</td><td>~ 220 kcal</td></tr>
-          <tr><td>Protein</td><td>~ 9 g</td></tr>
-          <tr><td>Carbohydrates</td><td>~ 26 g</td></tr>
-          <tr><td>Fat</td><td>~ 9 g</td></tr>
-          <tr><td>Sodium</td><td>~ 330 mg</td></tr>
+          <tr><td>Calories</td><td>~ 380 kcal</td></tr>
+          <tr><td>Protein</td><td>~ 15 g</td></tr>
+          <tr><td>Carbohydrates</td><td>~ 45 g</td></tr>
+          <tr><td>Fat</td><td>~ 15 g</td></tr>
+          <tr><td>Fiber</td><td>~ 2 g</td></tr>
+          <tr><td>Sodium</td><td>~ 650 mg</td></tr>
         </table>
-        <p class="note">Changes with toppings and cheese amount.</p>
+        <p class="note">Customize with your favorite toppings!</p>
       </aside>
     </div>
   </main>
+
+
 </body>
 </html>

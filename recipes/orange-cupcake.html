@@ -1,62 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Orange Cupcake | SouChef</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:#2c2c2c;background:url("../images/pic5.png") no-repeat center center fixed;background-size:cover;}
-    body::before{content:"";position:fixed;inset:0;background:rgba(255,255,255,0.5);z-index:0;}
-    .page{position:relative;z-index:1;max-width:1100px;margin:3rem auto;padding:2rem;background:rgba(255,255,255,0.6);border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);}
-    .layout{display:grid;gap:2rem;} @media (min-width:64em){.layout{grid-template-columns:1fr 320px;align-items:start;}}
-    h1,h2{color:#4a1748;} ul,ol{padding-left:1.2rem;}
-    .meta{display:flex;gap:.75rem 1.25rem;flex-wrap:wrap;font-weight:600;margin:.25rem 0 1rem;}
-    .panel{background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.3);border-radius:12px;padding:1rem 1.25rem;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
-    .panel h3{margin:0 0 .75rem 0;color:#4a1748;}
-    .nutri{font-size:.95rem;} .nutri table{width:100%;border-collapse:collapse;}
-    .nutri td{padding:.5rem .25rem;border-bottom:1px solid rgba(240,240,240,0.5);} .nutri td:first-child{font-weight:600;width:60%;}
-    .note{margin-top:.75rem;font-size:.9rem;color:#5a5a5a;} @media (min-width:64em){.sticky{position:sticky;top:1.25rem;}}
+    body {
+      margin: 0;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: #7d5f4d;
+      background: url("../images/pic5.png") no-repeat center center fixed;
+      background-size: cover;
+      background-attachment: fixed;
+      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(254, 252, 248, 0.85);
+      z-index: 0;
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: rgba(254, 252, 248, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(139, 111, 71, 0.2);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .layout {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 64em) {
+      .layout {
+        grid-template-columns: 1fr 320px;
+        align-items: start;
+      }
+    }
+    h1, h2 {
+      color: #8b6f47;
+      font-family: 'Bodoni Moda', serif;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    ul, ol {
+      padding-left: 1.2rem;
+      color: #7d5f4d;
+    }
+    .meta {
+      display: flex;
+      gap: .75rem 1.25rem;
+      flex-wrap: wrap;
+      font-weight: 600;
+      margin: .25rem 0 1rem;
+      color: #8b6f47;
+    }
+    .panel {
+      background: rgba(255, 255, 255, 0.7);
+      border: 2px solid rgba(212, 165, 116, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(139, 111, 71, 0.1);
+      margin-top: 12rem;
+    }
+    .panel h3 {
+      margin: 0 0 .75rem 0;
+      color: #8b6f47;
+      font-family: 'Bodoni Moda', serif;
+    }
+    .nutri {
+      font-size: .95rem;
+    }
+    .nutri table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .nutri td {
+      padding: .5rem .25rem;
+      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+      color: #7d5f4d;
+    }
+    .nutri td:first-child {
+      font-weight: 600;
+      width: 60%;
+    }
+    .note {
+      margin-top: .75rem;
+      font-size: .9rem;
+      color: #8b6f47;
+    }
+    @media (min-width: 64em) {
+      .sticky {
+        position: sticky;
+        top: 1.25rem;
+      }
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #8b6f47;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      transition: color 0.3s ease;
+    }
+    .back-link:hover {
+      color: #d4a574;
+    }
+    .primary-header .logo img {
+      max-width: 200px;
+      height: auto;
+    }
+    .primary-header {
+      position: relative;
+      z-index: 10;
+    }
+    .primary-header .logo {
+      position: relative;
+      z-index: 11;
+    }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header class="primary-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="../index.html" class="logo">
+          <img src="../images/logo2.png" alt="SouChef" />
+        </a>
+      </div>
+    </div>
+  </header>
+
   <main class="page">
     <div class="layout">
       <article>
         <header>
+          <a href="../index.html" class="back-link">← Back to Home</a>
           <h1 class="fs-primary-heading fw-bold">Orange Cupcake</h1>
-          <div class="meta"><span>⏱ 35 min</span><span>🍽 10–12 cupcakes</span><span>🧑‍🍳 Easy</span></div>
-          <p>Soft, citrusy cupcakes with fresh orange zest and a light glaze.</p>
+          <div class="meta"><span>⏱ 50 min</span><span>🍽 12 servings</span><span>🧑‍🍳 Medium</span></div>
+          <p>Zesty orange cupcakes with citrus cream cheese frosting.</p>
         </header>
         <section class="padding-block-500">
           <h2 class="fs-600 fw-bold">Ingredients</h2>
+          
+          </div>
+
           <ul>
-            <li>1¾ cups flour, 1 tsp baking powder, ¼ tsp baking soda, pinch salt</li>
-            <li>½ cup butter, ¾ cup sugar</li>
-            <li>2 eggs, 1 tsp vanilla</li>
-            <li>Zest of 1 orange, ½ cup orange juice, ¼ cup milk</li>
+            <li>
+              180g all-purpose flour
+              1 1/2 cups all-purpose flour
+            </li>
+            <li>
+              5g baking powder
+              1 tsp baking powder
+            </li>
+            <li>
+              2.5g salt
+              1/2 tsp salt
+            </li>
+            <li>
+              115g butter, softened
+              1/2 cup butter, softened
+            </li>
+            <li>
+              150g sugar
+              3/4 cup sugar
+            </li>
+            <li>
+              2 large eggs
+              2 large eggs
+            </li>
+            <li>
+              60ml orange juice
+              1/4 cup orange juice
+            </li>
+            <li>
+              2 tbsp orange zest
+              2 tbsp orange zest
+            </li>
+            <li>
+              120ml milk
+              1/2 cup milk
+            </li>
+            <li>
+              225g cream cheese, softened
+              8 oz cream cheese, softened
+            </li>
+            <li>
+              500g powdered sugar
+              4 cups powdered sugar
+            </li>
           </ul>
         </section>
         <section class="padding-block-500">
           <h2 class="fs-600 fw-bold">Steps</h2>
           <ol>
-            <li>Beat butter/sugar; add eggs, vanilla, zest.</li>
-            <li>Fold in dry ingredients alternating with juice+milk.</li>
-            <li>Bake at 175°C/350°F for 18–20 min. Glaze if desired.</li>
+            <li>Preheat oven to 350°F and line cupcake pan.</li>
+            <li>Mix flour, baking powder, and salt in a bowl.</li>
+            <li>Cream butter and sugar until fluffy.</li>
+            <li>Add eggs one at a time, then orange juice and zest.</li>
+            <li>Alternate adding flour mixture and milk.</li>
+            <li>Fill cupcake liners 2/3 full and bake 18-20 minutes.</li>
+            <li>Cool completely before frosting.</li>
+            <li>Make frosting by mixing cream cheese, butter, powdered sugar, and orange zest.</li>
+            <li>Frost cupcakes and garnish with orange zest.</li>
           </ol>
         </section>
       </article>
       <aside class="panel sticky nutri" aria-label="Nutrition facts">
-        <h3 class="fw-bold">Nutrition (per cupcake)</h3>
+        <h3 class="fw-bold">Nutrition (per serving)</h3>
         <table>
-          <tr><td>Calories</td><td>~ 180 kcal</td></tr>
-          <tr><td>Carbohydrates</td><td>~ 25 g</td></tr>
-          <tr><td>Fat</td><td>~ 7 g</td></tr>
-          <tr><td>Protein</td><td>~ 3 g</td></tr>
-          <tr><td>Sugar</td><td>~ 15 g</td></tr>
+          <tr><td>Calories</td><td>~ 320 kcal</td></tr>
+          <tr><td>Protein</td><td>~ 4 g</td></tr>
+          <tr><td>Carbohydrates</td><td>~ 48 g</td></tr>
+          <tr><td>Fat</td><td>~ 12 g</td></tr>
+          <tr><td>Sugar</td><td>~ 38 g</td></tr>
+          <tr><td>Sodium</td><td>~ 200 mg</td></tr>
         </table>
-        <p class="note">Varies with glaze and sugar amount.</p>
+        <p class="note">Bright and citrusy, perfect for spring.</p>
       </aside>
     </div>
   </main>
+
+
 </body>
 </html>

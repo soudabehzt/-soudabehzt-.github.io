@@ -6,69 +6,83 @@
   <title>Steak Dinner | SouChef</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* --- Background image w/ soft overlay --- */
     body {
       margin: 0;
       font-family: 'Be Vietnam Pro', sans-serif;
-      color: #2c2c2c;
+      color: #7d5f4d;
       background: url("../images/pic1.png") no-repeat center center fixed;
       background-size: cover;
+      background-attachment: fixed;
+      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
     }
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background: rgba(255,255,255,0.5); /* softer overlay */
+      background: rgba(254, 252, 248, 0.85);
       z-index: 0;
     }
-
-    /* --- Page container / card --- */
     .page {
       position: relative;
       z-index: 1;
       max-width: 1100px;
-      margin: 3rem auto;
+      margin: 0 auto;
       padding: 2rem;
-      background: rgba(255,255,255,0.6); /* transparent white */
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      background: rgba(254, 252, 248, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(139, 111, 71, 0.2);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
     }
-
-    /* --- Layout: content + right sidebar --- */
     .layout {
       display: grid;
       gap: 2rem;
     }
-    @media (min-width: 64em) { /* ~1024px */
+    @media (min-width: 64em) {
       .layout {
-        grid-template-columns: 1fr 320px; /* main | sidebar */
+        grid-template-columns: 1fr 320px;
         align-items: start;
       }
     }
-
-    h1, h2 { color: #4a1748; } /* brand purple */
-    ul, ol { padding-left: 1.2rem; }
-
-    /* --- Meta row under title --- */
+    h1, h2 {
+      color: #8b6f47;
+      font-family: 'Bodoni Moda', serif;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    ul, ol {
+      padding-left: 1.2rem;
+      color: #7d5f4d;
+    }
     .meta {
       display: flex;
       gap: .75rem 1.25rem;
       flex-wrap: wrap;
       font-weight: 600;
       margin: .25rem 0 1rem;
+      color: #8b6f47;
     }
-
-    /* --- Nutrition panel --- */
     .panel {
-      background: rgba(255,255,255,0.5); /* transparent white */
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      background: rgba(255, 255, 255, 0.7);
+      border: 2px solid rgba(212, 165, 116, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(139, 111, 71, 0.1);
+      margin-top: 12rem;
     }
     .panel h3 {
       margin: 0 0 .75rem 0;
-      color: #4a1748;
+      color: #8b6f47;
+      font-family: 'Bodoni Moda', serif;
     }
     .nutri {
       font-size: .95rem;
@@ -79,7 +93,8 @@
     }
     .nutri td {
       padding: .5rem .25rem;
-      border-bottom: 1px solid rgba(240,240,240,0.5);
+      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
+      color: #7d5f4d;
     }
     .nutri td:first-child {
       font-weight: 600;
@@ -88,73 +103,136 @@
     .note {
       margin-top: .75rem;
       font-size: .9rem;
-      color: #5a5a5a;
+      color: #8b6f47;
     }
-
-    /* Optional: make sidebar stick a bit on tall screens */
     @media (min-width: 64em) {
       .sticky {
         position: sticky;
         top: 1.25rem;
       }
     }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #8b6f47;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      transition: color 0.3s ease;
+    }
+    .back-link:hover {
+      color: #d4a574;
+    }
+    .primary-header .logo img {
+      max-width: 200px;
+      height: auto;
+    }
+    .primary-header {
+      position: relative;
+      z-index: 10;
+    }
+    .primary-header .logo {
+      position: relative;
+      z-index: 11;
+    }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header class="primary-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="../index.html" class="logo">
+          <img src="../images/logo2.png" alt="SouChef" />
+        </a>
+      </div>
+    </div>
+  </header>
+
   <main class="page">
     <div class="layout">
-      <!-- Main Content -->
       <article>
         <header>
+          <a href="../index.html" class="back-link">← Back to Home</a>
           <h1 class="fs-primary-heading fw-bold">Steak Dinner</h1>
-          <div class="meta">
-            <span>⏱ 35 min</span>
-            <span>🍽 2 servings</span>
-            <span>🧑‍🍳 Easy</span>
-          </div>
-          <p>Perfect medium-rare striploin with garlicky mushrooms and asparagus.</p>
+          <div class="meta"><span>⏱ 45 min</span><span>🍽 4 servings</span><span>🧑‍🍳 Medium</span></div>
+          <p>Perfectly cooked steak with roasted vegetables and garlic mashed potatoes.</p>
         </header>
-
         <section class="padding-block-500">
           <h2 class="fs-600 fw-bold">Ingredients</h2>
+          
+          </div>
+
           <ul>
-            <li>2 striploin steaks</li>
-            <li>2 tbsp butter</li>
-            <li>2 cloves garlic, smashed</li>
-            <li>8–10 asparagus spears</li>
-            <li>1 cup mushrooms, sliced</li>
-            <li>Kosher salt & freshly ground pepper</li>
+            <li>
+              4 ribeye steaks (225g each)
+              4 ribeye steaks (8 oz each)
+            </li>
+            <li>
+              900g potatoes, peeled and cubed
+              2 lbs potatoes, peeled and cubed
+            </li>
+            <li>
+              450g asparagus, trimmed
+              1 lb asparagus, trimmed
+            </li>
+            <li>
+              200g broccoli florets
+              2 cups broccoli florets
+            </li>
+            <li>
+              4 cloves garlic, minced
+              4 cloves garlic, minced
+            </li>
+            <li>
+              115g butter
+              1/2 cup butter
+            </li>
+            <li>
+              60ml olive oil
+              1/4 cup olive oil
+            </li>
+            <li>
+              Salt and pepper to taste
+              Salt and pepper to taste
+            </li>
+            <li>
+              Fresh herbs for garnish
+              Fresh herbs for garnish
+            </li>
           </ul>
         </section>
-
         <section class="padding-block-500">
           <h2 class="fs-600 fw-bold">Steps</h2>
           <ol>
-            <li>Pat steaks dry; season generously with salt and pepper.</li>
-            <li>Heat a skillet until very hot. Sear steaks 2–3 min per side.</li>
-            <li>Add butter and garlic; baste 30–60 sec for aroma.</li>
-            <li>Transfer steaks to rest 5 minutes.</li>
-            <li>In the same pan, sauté mushrooms and asparagus; season to taste.</li>
-            <li>Slice steak; plate with veggies and pan juices.</li>
+            <li>Preheat oven to 400°F for vegetables.</li>
+            <li>Boil potatoes until tender, about 15 minutes.</li>
+            <li>Toss vegetables with olive oil, salt, and pepper.</li>
+            <li>Roast vegetables for 20-25 minutes until tender.</li>
+            <li>Season steaks with salt and pepper.</li>
+            <li>Cook steaks in hot pan for 4-5 minutes per side.</li>
+            <li>Mash potatoes with butter, garlic, and cream.</li>
+            <li>Let steaks rest 5 minutes before slicing.</li>
+            <li>Serve steak with vegetables and mashed potatoes.</li>
           </ol>
         </section>
       </article>
-
-      <!-- Right Sidebar: Nutrition -->
       <aside class="panel sticky nutri" aria-label="Nutrition facts">
         <h3 class="fw-bold">Nutrition (per serving)</h3>
         <table>
-          <tr><td>Calories</td><td> ~ 560 kcal</td></tr>
-          <tr><td>Protein</td><td> ~ 46 g</td></tr>
-          <tr><td>Carbohydrates</td><td> ~ 8 g</td></tr>
-          <tr><td>Fat</td><td> ~ 38 g</td></tr>
-          <tr><td>Saturated Fat</td><td> ~ 16 g</td></tr>
-          <tr><td>Fiber</td><td> ~ 3 g</td></tr>
-          <tr><td>Sodium</td><td> ~ 780 mg</td></tr>
+          <tr><td>Calories</td><td>~ 650 kcal</td></tr>
+          <tr><td>Protein</td><td>~ 45 g</td></tr>
+          <tr><td>Carbohydrates</td><td>~ 35 g</td></tr>
+          <tr><td>Fat</td><td>~ 35 g</td></tr>
+          <tr><td>Fiber</td><td>~ 6 g</td></tr>
+          <tr><td>Sodium</td><td>~ 520 mg</td></tr>
         </table>
-        <p class="note">Estimates vary by cut, portion size, and added salt/butter.</p>
+        <p class="note">A complete, satisfying dinner for special occasions.</p>
       </aside>
     </div>
   </main>
+
+
 </body>
 </html>
