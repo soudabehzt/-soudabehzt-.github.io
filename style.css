@@ -1751,9 +1751,9 @@ body:has(.hero) {
 
 
 /* Decorative line design with pattern */
-body:has(.hero)::before {
+.primary-header::before {
   content: '';
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -1772,27 +1772,9 @@ body:has(.hero)::before {
       #8b6f47 90%, 
       transparent 100%
     );
-  z-index: 1000;
+  z-index: 1001;
 }
 
-/* Decorative dots pattern */
-body:has(.hero)::after {
-  content: '';
-  position: fixed;
-  top: 6px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-image: 
-    radial-gradient(circle at 10% 50%, #8b6f47 1px, transparent 1px),
-    radial-gradient(circle at 30% 50%, #a68b5b 1px, transparent 1px),
-    radial-gradient(circle at 50% 50%, #b8946f 1px, transparent 1px),
-    radial-gradient(circle at 70% 50%, #a68b5b 1px, transparent 1px),
-    radial-gradient(circle at 90% 50%, #8b6f47 1px, transparent 1px);
-  background-size: 20% 100%, 20% 100%, 20% 100%, 20% 100%, 20% 100%;
-  background-repeat: no-repeat;
-  z-index: 999;
-}
 
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
