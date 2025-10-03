@@ -7,15 +7,15 @@
   <link rel="stylesheet" href="../style.css">
   <style>
     body {
-      margin: 0;
+      margin: 0 !important;
       font-family: 'Be Vietnam Pro', sans-serif;
       color: #7d5f4d;
-      background: url("../images/pic5.png") no-repeat center center fixed;
-      background-size: cover;
-      background-attachment: fixed;
-      min-height: 100vh;
-      width: 100vw;
-      height: 100vh;
+      background: url("../images/pic5.png") no-repeat center center fixed !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+      min-height: 100vh !important;
+      width: 100vw !important;
+      height: 100vh !important;
       overflow-x: hidden;
     }
     body::before {
@@ -151,8 +151,8 @@
   </header>
 
   <main class="page">
-    <div class="layout">
-      <article>
+    <div class="layout" style="display: flex !important; gap: 2rem !important; align-items: flex-start !important;">
+      <article style="flex: 1 !important;">
         <header>
           <a href="../index.html" class="back-link">← Back to Home</a>
           <h1 class="fs-primary-heading fw-bold">Orange Cupcake</h1>
@@ -161,9 +161,6 @@
         </header>
         <section class="padding-block-500">
           <h2 class="fs-600 fw-bold">Ingredients</h2>
-          
-          </div>
-
           <ul>
             <li>
               180g all-purpose flour
@@ -226,7 +223,7 @@
           </ol>
         </section>
       </article>
-      <aside class="panel sticky nutri" aria-label="Nutrition facts">
+      <aside class="panel sticky nutri" style="flex: 0 0 320px !important;" aria-label="Nutrition facts">
         <h3 class="fw-bold">Nutrition (per serving)</h3>
         <table>
           <tr><td>Calories</td><td>~ 320 kcal</td></tr>
